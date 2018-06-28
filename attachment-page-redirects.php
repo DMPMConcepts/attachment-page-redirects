@@ -6,7 +6,7 @@ Plugin Name: Attachment page redirects
 Plugin URI: 
 Description: It redirects attachment pages to their parent pages. If parent page is not available the it redirects to home page.
 Version: 1.0
-Author: Gulshan Thakare
+Author: Gulshan Thakare and Sagar Gaikwad
 Author URI: http://www.dmpmconcepts.com/
 GitHub Plugin URI: https://github.com/DMPMConcepts/attachment-page-redirects
 */
