@@ -5,8 +5,8 @@
 Plugin Name: Attachment page redirects
 Plugin URI: 
 Description: It redirects attachment pages to their parent pages. If parent page is not available the it redirects to home page.
-Version: 1.0
-Author: Gulshan Thakare
+Version: 2.0
+Author: Gulshan Thakare and Sagar Gaikwad
 Author URI: http://www.dmpmconcepts.com/
 GitHub Plugin URI: https://github.com/DMPMConcepts/attachment-page-redirects
 */
@@ -16,13 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function redirect_unattached_images() {
 if ( is_attachment() ) {
-if  ( $post->post_parent == 0 ) {	
-
-	wp_redirect( home_url( '/', 'https' ) );
+global $post;
+if ( $post && $post->post_parent ) {
+wp_redirect( esc_url( get_permalink( $post->post_parent ) ), 301 );
+exit;
+} else {
+wp_redirect( esc_url( home_url( '/' ) ), 301 );
+exit;
 }
-else{
-	wp_redirect(get_permalink($post->post_parent)) ;
-  }
- }
+}
 }
 add_action('template_redirect', 'redirect_unattached_images');
