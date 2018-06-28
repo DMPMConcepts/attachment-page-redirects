@@ -8,8 +8,11 @@ Description: It redirects attachment pages to their parent pages. If parent page
 Version: 1.0
 Author: Gulshan Thakare
 Author URI: http://www.dmpmconcepts.com/
-GitHub Plugin URI: 
+GitHub Plugin URI: https://github.com/DMPMConcepts/attachment-page-redirects
 */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 function redirect_unattached_images() {
 if ( is_attachment() ) {
